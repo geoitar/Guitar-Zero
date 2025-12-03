@@ -192,7 +192,7 @@ Embedded YouTube demo of the project:
 
 Pictures:
 - Refer to repository
-- 
+
 ## Citations & Inspirations
 
 ### Lane/Note Concept
