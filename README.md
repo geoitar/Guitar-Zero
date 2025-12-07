@@ -116,9 +116,10 @@ The hit window includes:
 
 ### Scoring
 Base values:
-- Perfect = +2  
-- Good = +1  
-- OK = 0  
+- Perfect = +2 (Purple Score Bar)
+- Good = +1 (Light Blue Score Bar)
+- OK = 0 (Green Score Bar)
+- Miss = -2 (Grey Score Bar)
 
 Combo multiplier:
 - Combo ≥ 10 Consecutive Hits → ×1.1  
