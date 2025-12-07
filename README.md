@@ -1,6 +1,6 @@
 ## FPGA Rhythm Game (Final Project)
 ### DE1-SoC FPGA | Digital Systems Design  
-### AuthorS: Ashton Geoit and Naveen Gnanavelan
+### Authors: Ashton Geoit and Naveen Gnanavelan
 
 ## Table of Contents
 1. High-Level Problem Description  
