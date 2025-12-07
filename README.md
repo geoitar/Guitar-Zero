@@ -63,7 +63,7 @@ DE1-SoC FPGA development board
 ### Outputs
 - VGA: R, G, B, HSYNC, VSYNC, BLANK, SYNC, CLOCK  
 - LEDR: button visualizer
-- PFM: Incoprporated initially but we removed it due to issues trying to incorpoarte the audio
+- PFM: Incorporated initially but we removed it due to issues trying to add the audio
 
 ### Physical Gameplay Interface
 The game is played using the four pushbuttons on the DE1-SoC FPGA board and displayed on any VGA monitor.
