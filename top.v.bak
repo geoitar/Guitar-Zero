@@ -1,0 +1,64 @@
+module top (
+    input         CLOCK_50,
+    input  [3:0]  KEY,      // pushbuttons (usually active-LOW)
+    input  [0:0]  SW,       // SW[0] for level
+
+    output [7:0]  VGA_R,
+    output [7:0]  VGA_G,
+    output [7:0]  VGA_B,
+    output        VGA_HS,
+    output        VGA_VS,
+
+    output [3:0]  LEDR,
+    output [3:0]  LEDG,
+
+    output        AUDIO_OUT
+);
+
+    wire [3:0] buttons_active_high = ~KEY[3:0];  // invert if keys are active-low
+
+    wire [2:0] red;
+    wire [2:0] green;
+    wire [1:0] blue;
+    wire       led_r, led_y, led_g, led_b;
+    wire       pfm;
+
+    GuitarZero game_inst (
+        .button (buttons_active_high),
+        .level  (SW[0]),
+        .clock  (CLOCK_50),
+        .reset  (~KEY[0]),  // KEY0 pressed -> reset=1
+        .h_sync (VGA_HS),
+        .v_sync (VGA_VS),
+        .red    (red),
+        .green  (green),
+        .blue   (blue),
+        .led_r  (led_r),
+        .led_y  (led_y),
+        .led_g  (led_g),
+        .led_b  (led_b),
+        .pfm    (pfm)
+    );
+
+    // Map 3:3:2 color to 8:8:8 VGA
+    assign VGA_R[7:5] = red;
+    assign VGA_R[4:0] = 5'b0;
+
+    assign VGA_G[7:5] = green;
+    assign VGA_G[4:0] = 5'b0;
+
+    assign VGA_B[7:6] = blue;
+    assign VGA_B[5:0] = 6'b0;
+
+    // LEDs
+    assign LEDR[0] = led_r;
+    assign LEDR[1] = led_y;
+    assign LEDR[2] = led_g;
+    assign LEDR[3] = led_b;
+
+    assign LEDG    = 4'b0000;  // unused
+
+    // Audio
+    assign AUDIO_OUT = pfm;
+
+endmodule
